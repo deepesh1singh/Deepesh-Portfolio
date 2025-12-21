@@ -278,6 +278,8 @@
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
         /* About Section */
@@ -442,6 +444,74 @@
             color: var(--primary-color);
         }
 
+        /* Education Section */
+        #education-section {
+            background-color: var(--darker-bg);
+        }
+
+        .education-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .education-card {
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+
+        .institution {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .institution-name {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .education-duration {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            margin-top: 15px;
+        }
+
+        .education-details ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .education-details li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .education-details li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: -15px;
+        }
+
+        /* Coursework Section */
         #education {
         background-color: var(--darker-bg);
         padding: 80px 0;
@@ -557,53 +627,6 @@
         font-weight: 600;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 992px) {
-        .coursework-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 768px) {
-        .education-main {
-            padding: 25px;
-        }
-        
-        .coursework-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .course-category {
-            padding: 20px;
-        }
-        
-        .category-header h4 {
-            font-size: 1.2rem;
-        }
-        
-        .course-name {
-            font-size: 0.95rem;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .section-title {
-            font-size: 2rem;
-        }
-        
-        .course-summary {
-            padding: 20px;
-        }
-        
-        .course-summary h4 {
-            font-size: 1.2rem;
-        }
-        
-        .summary-content p {
-            font-size: 1rem;
-        }
-    }
-
         /* Certifications & Achievements */
         #certifications, #achievements {
             padding: 60px 0;
@@ -709,27 +732,12 @@
                 font-size: 2.2rem;
             }
             
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item:nth-child(odd) .timeline-content::after,
-            .timeline-item:nth-child(even) .timeline-content::after {
-                left: 21px;
-            }
-            
             .skills-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .coursework-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -774,6 +782,35 @@
                 width: 250px;
                 height: 250px;
             }
+            
+            .institution {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .education-duration {
+                margin-top: 5px;
+            }
+            
+            .education-main {
+                padding: 25px;
+            }
+            
+            .coursework-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-category {
+                padding: 20px;
+            }
+            
+            .category-header h4 {
+                font-size: 1.2rem;
+            }
+            
+            .course-name {
+                font-size: 0.95rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -792,6 +829,18 @@
             .contact-info {
                 grid-template-columns: 1fr;
             }
+            
+            .course-summary {
+                padding: 20px;
+            }
+            
+            .course-summary h4 {
+                font-size: 1.2rem;
+            }
+            
+            .summary-content p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -802,6 +851,7 @@
             <div class="nav-links">
                 <a href="#hero">Home</a>
                 <a href="#about">About</a>
+                <a href="#education-section">Education</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#education">Coursework</a>
@@ -838,11 +888,8 @@
                     </div>
                 </div>
                 <div class="hero-image fade-in">
-                    <div class="profile-placeholder">
-                        <div class="profile-img" style="background: linear-gradient(45deg, #6c63ff, #36d1dc); display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem;">
-                            DS
-                        </div>
-                    </div>
+                    <!-- Replaced DS placeholder with actual image -->
+                    <img src="1.PNG" alt="Deepesh Singh" class="profile-img">
                 </div>
             </div>
         </div>
@@ -874,6 +921,38 @@
                             <li>Team Collaboration & Leadership</li>
                             <li>Effective Communication</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education-section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-container">
+                <!-- IIT Kharagpur Education -->
+                <div class="education-card glass-card fade-in">
+                    <div class="institution">
+                        <div class="institution-name">Indian Institute of Technology Kharagpur</div>
+                        <div class="education-duration">2022 - 2027</div>
+                    </div>
+                    <div class="degree">Bachelor and Master in Computer Science and Engineering</div>
+                    <div class="education-details">
+                        <p>Integrated B.Tech and M.Tech dual degree program in Computer Science and Engineering.</p>
+                    </div>
+                </div>
+                
+                <!-- Jawahar Navodaya Vidyalaya Education -->
+                <div class="education-card glass-card fade-in">
+                    <div class="institution">
+                        <div class="institution-name">Jawahar Navodaya Vidyalaya, Lucknow</div>
+                        <div class="education-duration">2021</div>
+                    </div>
+                    <div class="degree">Class XII, CBSE</div>
+                    <div class="education-details">
+                        <p>Completed senior secondary education with focus on science and mathematics.</p>
                     </div>
                 </div>
             </div>
@@ -1029,12 +1108,12 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project 6 -->
                 <div class="project-card glass-card fade-in">
                     <div class="project-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3>Bias Varience Model</h3>
+                    <h3>Bias Variance Model</h3>
                     <p>Developed and analyzed bias-variance models in a Jupyter Notebook environment, utilizing Python's scientific computing ecosystem. Explored core concepts of model performance, overfitting, and underfitting through interactive visualizations and data-driven experiments. Implemented statistical evaluation techniques including cross-validation, learning curves, and error analysis to demonstrate the trade-offs between bias and variance. Provided clear documentation and step-by-step code annotations for reproducibility and educational clarity.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Jupyter Notebook</span>
@@ -1289,7 +1368,6 @@
     </div>
 </section>
 
-
     <script>
         // Navigation scroll effect
         const nav = document.querySelector('nav');
@@ -1359,38 +1437,6 @@
             });
         });
 
-         document.addEventListener('DOMContentLoaded', function() {
-        const gradeElements = document.querySelectorAll('.course-grade');
-        
-        gradeElements.forEach(grade => {
-            const gradeText = grade.textContent.trim();
-            
-            // Remove any existing color classes
-            grade.classList.remove('grade-a', 'grade-b', 'grade-c');
-            
-            // Add appropriate color class
-            if (gradeText.includes('A+') || gradeText.includes('A')) {
-                grade.style.background = 'linear-gradient(90deg, #4CAF50, #8BC34A)';
-            } else if (gradeText.includes('B+') || gradeText.includes('B')) {
-                grade.style.background = 'linear-gradient(90deg, #FF9800, #FFB74D)';
-            } else if (gradeText.includes('C')) {
-                grade.style.background = 'linear-gradient(90deg, #F44336, #E57373)';
-            }
-        });
-        
-        // Add interactivity to course items
-        const courseItems = document.querySelectorAll('.course-item');
-        
-        courseItems.forEach(item => {
-            item.addEventListener('click', function() {
-                // Toggle expanded view for mobile
-                if (window.innerWidth <= 768) {
-                    this.classList.toggle('expanded');
-                }
-            });
-        });
-    });
-
         // Add active class to current section in navigation
         const sections = document.querySelectorAll('section');
         const navItems = document.querySelectorAll('.nav-links a');
@@ -1417,6 +1463,4 @@
 
     </script>
 </body>
-
 </html>
-
